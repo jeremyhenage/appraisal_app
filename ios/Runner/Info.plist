@@ -66,5 +66,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera access is required for firearm appraisal and OCR.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone access is required for video recording.</string>
 </dict>
 </plist>

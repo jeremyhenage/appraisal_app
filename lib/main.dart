@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:appraisal_app/core/theme/app_theme.dart';
+import 'package:appraisal_app/features/appraisal/presentation/screens/camera_screen.dart';
+import 'package:appraisal_app/features/appraisal/presentation/screens/deal_dashboard_screen.dart';
 
 void main() {
   runApp(const AppraisalApp());
@@ -11,15 +14,12 @@ class AppraisalApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Operator Terminal',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyan, brightness: Brightness.dark),
-        useMaterial3: true,
-      ),
-      home: const Scaffold(
-        body: Center(
-          child: Text('Operator System Initialized. Run "flutter pub get" to start.'),
-        ),
-      ),
+      theme: AppTheme.darkTheme,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const CameraScreen(),
+        '/dashboard': (context) => const DealDashboardScreen(),
+      },
     );
   }
 }
