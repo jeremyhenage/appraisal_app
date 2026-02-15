@@ -1,0 +1,50 @@
+[
+  {
+    "id": "winchester_model_70",
+    "image_filenames": ["winchester_model_70/receiver.jpg", "winchester_model_70/barrel.jpg", "winchester_model_70/overall.jpg"],
+    "ocr_text": "Model 70 S/N 12345",
+    "expected_analysis": {
+      "make": "Winchester",
+      "model": "Model 70",
+      "variant": "Pre-64",
+      "condition_grade": "Very Good",
+      "is_current_production": false
+    },
+    "expected_valuation": {
+        "value": 1200.0,
+        "currency": "USD"
+    }
+  },
+  {
+    "id": "glock_19_gen5",
+    "image_filenames": ["glock_19/slide_left.jpg", "glock_19/slide_right.jpg"],
+    "ocr_text": "Glock 19 Gen 5",
+    "expected_analysis": {
+      "make": "Glock",
+      "model": "19",
+      "variant": "Gen 5",
+      "condition_grade": "Excellent",
+      "is_current_production": true
+    },
+    "expected_valuation": {
+        "value": 450.0,
+        "currency": "USD"
+    }
+  },
+  {
+    "id": "colt_python",
+    "image_filenames": ["colt_python/left_side.jpg", "colt_python/crane.jpg", "colt_python/cylinder.jpg"],
+    "ocr_text": "Colt Python .357 Magnum",
+    "expected_analysis": {
+      "make": "Colt",
+      "model": "Python",
+      "variant": "6-inch Barrel",
+      "condition_grade": "Good",
+      "is_current_production": true
+    },
+    "expected_valuation": {
+        "value": 1500.0,
+        "currency": "USD"
+    }
+  }
+]

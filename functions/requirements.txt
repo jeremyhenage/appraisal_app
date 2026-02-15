@@ -1,0 +1,11 @@
+flask
+functions-framework
+firebase-admin
+google-cloud-aiplatform
+google-cloud-logging
+pydantic
+pytest
+vcrpy
+requests
+beautifulsoup4
+pytest-mock
