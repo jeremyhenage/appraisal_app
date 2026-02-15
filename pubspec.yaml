@@ -1,0 +1,26 @@
+name: appraisal_app
+description: "Tactical firearm valuation terminal."
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.4.9
+  google_ml_kit_text_recognition: ^0.13.0
+  camera: ^0.10.5+9
+  flutter_animate: ^4.5.0
+  flex_color_scheme: ^7.3.1
+  google_fonts: ^6.1.0
+  http: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
