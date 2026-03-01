@@ -9,7 +9,8 @@ from models.models import AnalysisResult
 # Initialize Vertex AI
 # Note: valid_locations currently unused if we rely on ADC/Environment defaults, 
 # but good to be explicit if needed. project_id is picked up from env.
-vertexai.init()
+# Note: valid_locations currently unused if we rely on ADC/Environment defaults, 
+# but good to be explicit if needed. project_id is picked up from env.
 
 logger = logging.getLogger(__name__)
 
@@ -25,7 +26,8 @@ def analyze_image(image_uri: str, ocr_text: Optional[List[str]] = None) -> Analy
         AnalysisResult: Structured analysis of the firearm.
     """
     
-    model = GenerativeModel("gemini-1.5-pro")
+    vertexai.init(project="firearmappraiser", location="us-central1")
+    model = GenerativeModel("gemini-2.0-flash-exp")
     
     # Construct the prompt
     ocr_context = ""
@@ -87,12 +89,23 @@ def analyze_image(image_uri: str, ocr_text: Optional[List[str]] = None) -> Analy
         "top_p": 0.8,
     }
 
-    try:
-        responses = model.generate_content(
-            [image_part, prompt],
-            generation_config=generation_config,
+    from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
+    from google.api_core.exceptions import ResourceExhausted
+
+    @retry(
+        retry=retry_if_exception_type(ResourceExhausted),
+        stop=stop_after_attempt(5),
+        wait=wait_exponential(multiplier=2, min=2, max=30)
+    )
+    def generate_with_retry(model, parts, config):
+        return model.generate_content(
+            parts,
+            generation_config=config,
             stream=False,
         )
+
+    try:
+        responses = generate_with_retry(model, [image_part, prompt], generation_config)
         
         response_text = responses.text.strip()
         # Clean up markdown if present despite instructions

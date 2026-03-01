@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "523588175031",
+    "project_id": "firearmappraiser",
+    "storage_bucket": "firearmappraiser.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523588175031:android:15dc3b5c69734a23bbb932",
+        "android_client_info": {
+          "package_name": "com.operator.appraisal_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtqiiw6l6zWnbcjlCPZCq4c2GUezLDW-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
